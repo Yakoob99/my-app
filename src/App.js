@@ -81,48 +81,53 @@ export default function App() {
     return hexCodes.join("");
   }
 
-  return (
-    <div>
-      <button onClick={() => openFileSelector()}>Select files </button>
-      <br />
-      {filesContent.map((file, index) => (
-        <div key={index}>
-          <h2>{file.name}</h2>
-          <img alt={file.name} src={file.content}></img>
-          <br />
-          <button onClick={() => fetch(filesContent[0].content).then(res => res.blob()).then(blob => { handleFiles(blob) })}>Hash 256 </button>
-
-        </div>
-      ))}
-    </div>
-  );
-}
-
-
-// function App() {
 //   return (
-//     <ChakraProvider theme={theme}>
-//       <Box textAlign="center" fontSize="xl">
-//         <Grid minH="100vh" p={3}>
-//           <ColorModeSwitcher justifySelf="flex-end" />
-//           <VStack spacing={8}>
-//             <Logo h="40vmin" pointerEvents="none" />
-//             <Text>
-//               Hi this button is to upload <Button> Upload </Button>
-//             </Text>
-//             <Link
-//               color="teal.500"
-//               href="https://chakra-ui.com"
-//               fontSize="2xl"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//             >
-//               Learn Chakra
-//             </Link>
-//           </VStack>
-//         </Grid>
-//       </Box>
-      
-//     </ChakraProvider>
+//     <div>
+//       <button onClick={() => openFileSelector()}>Select files </button>
+//       <br />
+//       {filesContent.map((file, index) => (
+//         <div key={index}>
+//           <h2>{file.name}</h2>
+//           <img alt={file.name} src={file.content}></img>
+//           <br />
+//           <button onClick={() => fetch(filesContent[0].content).then(res => res.blob()).then(blob => { handleFiles(blob) })}>Hash 256 </button>
+
+//         </div>
+//       ))}
+//     </div>
 //   );
 // }
+
+//This website has been created to identify and store data regarding files which may be deemed as illicit and/or have an interest into commiting or facilitating crime. 
+// This will be done using file signatures, which will be compiled against a database 
+
+  return (
+    <ChakraProvider theme={theme}>
+      <Box textAlign="center" fontSize="xl">
+        <Grid minH="100vh" p={3}>
+          <ColorModeSwitcher justifySelf="flex-end" />
+          <Text>
+          This website has been created to identify and store data regarding files which may be deemed as illicit and/or have an interest into commiting or facilitating crime.
+            </Text>
+          <VStack spacing={8}>
+            <Logo h="40vmin" pointerEvents="none" />
+            <Text>
+              Select file to check against the repository   <Button onClick={() => openFileSelector()}>Select files </Button>
+            </Text>
+            <Link
+              color="teal.500"
+              href="https://chakra-ui.com"
+              fontSize="2xl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn Chakra
+            </Link>
+          </VStack>
+        </Grid>
+      </Box>
+      
+    </ChakraProvider>
+  );
+} 
+
