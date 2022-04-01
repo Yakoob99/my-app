@@ -113,6 +113,7 @@ export default function App() {
             <Logo h="40vmin" pointerEvents="none" />
             <Text>
               Select file to check against the repository   <Button onClick={() => openFileSelector()}>Select files </Button>
+               <Button onClick={() => fetch(filesContent[0].content).then(res => res.blob()).then(blob => { handleFiles(blob) })}>Hash 256 </Button>
             </Text>
             <Link
               color="teal.500"
