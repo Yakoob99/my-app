@@ -9,11 +9,16 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^10.4.9",
     "@testing-library/user-event": "^12.8.3",
+    "crypto-browserify": "^3.12.0",
+    "crypto-js": "^4.1.1",
     "framer-motion": "^4.1.17",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^3.11.0",
+    "react-images-upload": "^1.2.8",
+    "react-native-sha256": "^1.4.7",
     "react-scripts": "5.0.0",
+    "use-file-picker": "^1.4.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
