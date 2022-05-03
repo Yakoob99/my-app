@@ -52,9 +52,18 @@ export default function App() {
           var sha256result = hex(hash);
           // this should contain your sha-256 hash value
           console.log(sha256result);
+          fetch("http://localhost:4000/DBhash/"+ sha256result, {
+            method: "GET",
+            headers: {'Content-Type': 'application/json'}, 
+          }).then(res => {
+            console.log("Request complete! response:", res.body);
+            return res.text();
+
+          }).then(body => {console.log(body)});
         });
       };
   
+
       // calling reader.readAsArrayBuffer and providing a file should trigger the callback above 
       // as soon as readAsArrayBuffer is complete
       reader.readAsArrayBuffer(file);
