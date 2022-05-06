@@ -17,7 +17,7 @@ import CryptoJS from 'crypto-js';
 import ImageUploader from 'react-images-upload';
 import { render } from '@testing-library/react';
 
-let showScreen = 1;
+var showScreen = 1;
 
 export default function App() {
   const [openFileSelector, { filesContent, loading, errors }] = useFilePicker({
@@ -58,9 +58,10 @@ export default function App() {
           }).then(res => {
             console.log("Request complete! response:", res.body);
             return res.text();
-
-          }).then(body => {if(body == true) {showScreen = 2} else if(body == false) {showScreen = 1}});
-          // Not working atm
+            
+            
+          }).then(body => {if(body == "true") {showScreen = 2} else if(body == "false") {showScreen = 1}});
+          console.log(showScreen)
         });
       };
   
