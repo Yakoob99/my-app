@@ -17,7 +17,7 @@ import CryptoJS from 'crypto-js';
 import ImageUploader from 'react-images-upload';
 import { render } from '@testing-library/react';
 
-var showScreen = 1;
+var showScreen = 0;
 
 export default function App() {
   const [openFileSelector, { filesContent, loading, errors }] = useFilePicker({
@@ -61,7 +61,7 @@ export default function App() {
             
             
           }).then(body => {if(body == "true") {showScreen = 2} else if(body == "false") {showScreen = 1}});
-          console.log(showScreen)
+          console.log(showScreen) 
         });
       };
   
@@ -112,7 +112,7 @@ export default function App() {
 //This website has been created to identify and store data regarding files which may be deemed as illicit and/or have an interest into commiting or facilitating crime. 
 // This will be done using file signatures, which will be compiled against a database 
 
-if (showScreen == 1){
+if (showScreen == 0){
   return (
     <ChakraProvider theme={theme}>
       <Box textAlign="center" fontSize="xl">
@@ -143,7 +143,7 @@ if (showScreen == 1){
       
     </ChakraProvider>
   );
-} else if (showScreen == 2){
+} else if (showScreen == 1){
   return (
     <ChakraProvider theme={theme}>
       <Box textAlign="center" fontSize="xl">
@@ -157,5 +157,19 @@ if (showScreen == 1){
       
     </ChakraProvider>
   );
-  }
+  } else if (showScreen == 2){
+    return (
+      <ChakraProvider theme={theme}>
+        <Box textAlign="center" fontSize="xl">
+          <Grid minH="100vh" p={3}>
+            <ColorModeSwitcher justifySelf="flex-end" />
+            <Text>
+            The image is NOT clean!
+              </Text>
+          </Grid>
+        </Box>
+        
+      </ChakraProvider>
+    );
+    }
 }
