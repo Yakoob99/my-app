@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFilePicker } from 'use-file-picker'
 
 import {
@@ -17,9 +17,10 @@ import CryptoJS from 'crypto-js';
 import ImageUploader from 'react-images-upload';
 import { render } from '@testing-library/react';
 
-var showScreen = 1;
+
 
 export default function App() {
+  const [showScreen, setshowScreen] = useState(1);
   const [openFileSelector, { filesContent, loading, errors }] = useFilePicker({
     readAs: 'DataURL',
     accept: 'image/*',
@@ -60,7 +61,7 @@ export default function App() {
             return res.text();
             
             
-          }).then(body => {if(body == "true") {showScreen = 2} else if(body == "false") {showScreen = 1}});
+          }).then(body => {if(body == "true") {setshowScreen(2)} else if(body == "false") {setshowScreen(1)}});
           console.log(showScreen)
         });
       };
