@@ -61,7 +61,7 @@ export default function App() {
             return res.text();
             
             
-          }).then(body => {if(body == "true") {setshowScreen(2)} else if(body == "false") {setshowScreen(1)}});
+          }).then(body => {if(body == "true") {setshowScreen(3)} else if(body == "false") {setshowScreen(2)}});
           console.log(showScreen)
         });
       };
@@ -157,6 +157,20 @@ if (showScreen == 1){
       
     </ChakraProvider>
   );
+  } else if (showScreen == 3){
+    return (
+      <ChakraProvider theme={theme}>
+        <Box textAlign="center" fontSize="xl">
+          <Grid minH="100vh" p={3}>
+            <ColorModeSwitcher justifySelf="flex-end" />
+            <Text>
+            The image is Not clean!
+              </Text>
+          </Grid>
+        </Box>
+        
+      </ChakraProvider>
+    );
   }
 }
 
