@@ -39,6 +39,13 @@ export default function App() {
     return <div>Error...</div>;
   }
 
+  const backHome = () => {
+    setshowScreen(1)
+    filesContent.length = 0
+
+
+  }
+
   const handleFiles = (file) => {
     console.log(file);
     // files will be an array of files, even if only one file is selected  
@@ -129,7 +136,7 @@ if (showScreen == 1){
 } else if (showScreen == 2){
   return (
     <ChakraProvider theme={theme}>
-      <Button onClick={() => setshowScreen(1)}>Home </Button>
+      <Button onClick={() => backHome()}>Home </Button>
       <Box textAlign="center" fontSize="xl">
         <Grid minH="100vh" p={3}>
           <ColorModeSwitcher justifySelf="flex-end" />
@@ -144,7 +151,7 @@ if (showScreen == 1){
   } else if (showScreen == 3){
     return (
       <ChakraProvider theme={theme}>
-        <Button onClick={() => setshowScreen(1)}>Home </Button>
+        <Button onClick={() => backHome()}>Home </Button>
         <Box textAlign="center" fontSize="xl">
           <Grid minH="100vh" p={3}>
             <ColorModeSwitcher justifySelf="flex-end" />
