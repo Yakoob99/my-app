@@ -28,6 +28,7 @@ export default function App() {
     limitFilesConfig: { max: 1 },
     // minFileSize: 0.1, // in megabytes
     maxFileSize: 50
+
   });
 
   if (loading) {
@@ -92,24 +93,6 @@ export default function App() {
     // Join all the hex strings into one
     return hexCodes.join("");
   }
-
-//   return (
-//     <div>
-//       <button onClick={() => openFileSelector()}>Select files </button>
-//       <br />
-//       {filesContent.map((file, index) => (
-//         <div key={index}>
-//           <h2>{file.name}</h2>
-//           <img alt={file.name} src={file.content}></img>
-//           <br />
-//           <button onClick={() => fetch(filesContent[0].content).then(res => res.blob()).then(blob => { handleFiles(blob) })}>Hash 256 </button>
-
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
-
 //This website has been created to identify and store data regarding files which may be deemed as illicit and/or have an interest into commiting or facilitating crime. 
 // This will be done using file signatures, which will be compiled against a database 
 
@@ -126,7 +109,7 @@ if (showScreen == 1){
             <Logo h="40vmin" pointerEvents="none" />
             <Text>
               Select file to check against the repository   <Button onClick={() => openFileSelector()}>Select files </Button>
-               <Button onClick={() => fetch(filesContent[0].content).then(res => res.blob()).then(blob => { handleFiles(blob) })}>Hash 256 </Button>
+               <Button disabled={filesContent.length === 0} onClick={() => fetch(filesContent[0].content).then(res => res.blob()).then(blob => { handleFiles(blob) })}>Hash 256 </Button>
             </Text>
             <Link
               color="teal.500"
