@@ -146,6 +146,7 @@ if (showScreen == 1){
 } else if (showScreen == 2){
   return (
     <ChakraProvider theme={theme}>
+      <Button onClick={() => setshowScreen(1)}>Home </Button>
       <Box textAlign="center" fontSize="xl">
         <Grid minH="100vh" p={3}>
           <ColorModeSwitcher justifySelf="flex-end" />
@@ -160,6 +161,7 @@ if (showScreen == 1){
   } else if (showScreen == 3){
     return (
       <ChakraProvider theme={theme}>
+        <Button onClick={() => setshowScreen(1)}>Home </Button>
         <Box textAlign="center" fontSize="xl">
           <Grid minH="100vh" p={3}>
             <ColorModeSwitcher justifySelf="flex-end" />
