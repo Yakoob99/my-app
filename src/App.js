@@ -143,6 +143,10 @@ if (showScreen == 1){
           <Text>
           The image is clean!
             </Text>
+            <Text>
+          If you disagree! Add the image to the database! <Button> Add Image </Button>
+            </Text>
+            
         </Grid>
       </Box>
       
@@ -156,7 +160,7 @@ if (showScreen == 1){
           <Grid minH="100vh" p={3}>
             <ColorModeSwitcher justifySelf="flex-end" />
             <Text>
-            The image is Not clean!
+            This image is not clean and contains illicit materials!
               </Text>
           </Grid>
         </Box>
