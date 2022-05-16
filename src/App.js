@@ -48,7 +48,7 @@ export default function App() {
   }
 
   const addHash = () => {
-    fetch("http://localhost:4000/hashAdd/"+ sha256result, {
+    fetch("http://localhost:4000/DBhash/"+ sha256result, {
             method: "POST",
             headers: {'Content-Type': 'application/json'}, 
           }).then(res => {
