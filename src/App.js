@@ -55,10 +55,10 @@ export default function App() {
           }).then(res => {
             console.log("Request to Hash added", res.body);
             return res.text();
-            
+
             
           })
-          
+          setshowScreen(4)
         }
 
 
@@ -166,7 +166,7 @@ if (showScreen == 1){
           The image is clean!
             </Text>
             <Text>
-          If you disagree! Add the image to the database! <Button onClick={() => addHash()}> Add Image </Button>
+          If you disagree! Add the image to the repository! <Button onClick={() => addHash()}> Add Image </Button>
             </Text>
             
         </Grid>
@@ -189,6 +189,21 @@ if (showScreen == 1){
         
       </ChakraProvider>
     );
+  } else if (showScreen == 4){
+    return (
+      <ChakraProvider theme={theme}>
+        <Button onClick={() => backHome()}>Home </Button>
+        <Box textAlign="center" fontSize="xl">
+          <Grid minH="100vh" p={3}>
+            <ColorModeSwitcher justifySelf="flex-end" />
+            <Text>
+            The image is now stored in the repository!
+              </Text>
+          </Grid>
+        </Box>
+        
+      </ChakraProvider>
+    );
   }
-}
+} 
 
