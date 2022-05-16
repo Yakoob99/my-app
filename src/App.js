@@ -21,6 +21,7 @@ import { render } from '@testing-library/react';
 
 export default function App() {
   const [showScreen, setshowScreen] = useState(1);
+  const [sha256result, setsha256result] = useState(null)
   const [openFileSelector, { filesContent, loading, errors }] = useFilePicker({
     readAs: 'DataURL',
     accept: 'image/*',
@@ -46,6 +47,22 @@ export default function App() {
 
   }
 
+  const addHash = () => {
+    fetch("http://localhost:4000/hashAdd/"+ sha256result, {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'}, 
+          }).then(res => {
+            console.log("Request to Hash added", res.body);
+            return res.text();
+            
+            
+          })
+          
+        }
+
+
+  
+
   const handleFiles = (file) => {
     console.log(file);
     // files will be an array of files, even if only one file is selected  
@@ -58,7 +75,7 @@ export default function App() {
         const fileResult = reader.result;
         
         crypto.subtle.digest('SHA-256', fileResult).then((hash) => {
-          var sha256result = hex(hash);
+          setsha256result(hex(hash)) ;
           // this should contain your sha-256 hash value
           console.log(sha256result);
           fetch("http://localhost:4000/DBhash/"+ sha256result, {
@@ -73,6 +90,8 @@ export default function App() {
           console.log(showScreen)
         });
       };
+
+
   
 
       // calling reader.readAsArrayBuffer and providing a file should trigger the callback above 
@@ -144,7 +163,7 @@ if (showScreen == 1){
           The image is clean!
             </Text>
             <Text>
-          If you disagree! Add the image to the database! <Button> Add Image </Button>
+          If you disagree! Add the image to the database! <Button onClick={() => addHash()}> Add Image </Button>
             </Text>
             
         </Grid>
