@@ -142,12 +142,12 @@ if (showScreen == 1){
             </Text>
             <Link
               color="teal.500"
-              href="https://chakra-ui.com"
+              href="https://blog.cryptographyengineering.com/2018/04/07/hash-based-signatures-an-illustrated-primer/"
               fontSize="2xl"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Learn Chakra
+              Learn more about this project!
             </Link>
           </VStack>
         </Grid>
