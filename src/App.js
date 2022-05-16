@@ -43,6 +43,7 @@ export default function App() {
   const backHome = () => {
     setshowScreen(1)
     filesContent.length = 0
+    setsha256result(null)
 
 
   }
@@ -75,10 +76,12 @@ export default function App() {
         const fileResult = reader.result;
         
         crypto.subtle.digest('SHA-256', fileResult).then((hash) => {
-          setsha256result(hex(hash)) ;
+          let correctHash = (hex(hash));
+          setsha256result(correctHash) ;
+
           // this should contain your sha-256 hash value
           console.log(sha256result);
-          fetch("http://localhost:4000/DBhash/"+ sha256result, {
+          fetch("http://localhost:4000/DBhash/"+ correctHash, {
             method: "GET",
             headers: {'Content-Type': 'application/json'}, 
           }).then(res => {
